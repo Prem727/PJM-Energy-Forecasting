@@ -1,5 +1,59 @@
 # ⚡ PJM Hourly Energy Consumption Forecast
 
+## How to Run the Project
+
+### 1. Run Locally
+
+To run the application on your computer:
+
+```bash
+cd C:\Energy_Forecasting
+pip install -r requirements.txt
+python -m streamlit run app.py
+```
+
+After running the command, open:
+
+```text
+http://localhost:8501
+```
+
+The local application uses the trained Random Forest model stored in the project folder.
+
+### 2. Run Online
+
+The project is also deployed using Streamlit Community Cloud.
+
+**Live Application:**
+
+https://pjm-energy-forecasting-ju8vahspcaxoyvdt8lixyl.streamlit.app/
+
+Anyone can open the live application using the above link without installing Python locally.
+
+### Deployment Architecture
+
+```text
+GitHub Repository
+       |
+       v
+Streamlit Community Cloud
+       |
+       v
+     app.py
+       |
+       v
+Hugging Face Model Repository
+       |
+       v
+Random Forest Model (.pkl)
+       |
+       v
+30-Day Energy Consumption Forecast
+```
+
+The trained model is hosted separately on Hugging Face because the model file is approximately 1.2 GB and is therefore not stored in the GitHub repository.
+
+
 ## 📌 Project Overview
 
 This project focuses on forecasting hourly electricity consumption using historical PJM energy consumption data.
