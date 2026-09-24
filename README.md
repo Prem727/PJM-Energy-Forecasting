@@ -20,15 +20,17 @@ http://localhost:8501
 
 The local application uses the trained Random Forest model stored in the project folder.
 
-### 2. Run Online
 
-The project is also deployed using Streamlit Community Cloud.
+### Online Deployment
 
-**Live Application:**
+The project is deployed online using Streamlit Community Cloud.
 
-https://pjm-energy-forecasting-ju8vahspcaxoyvdt8lixyl.streamlit.app/
+**Live Application:**  
+https://pjm-energy-forecasting.streamlit.app/
 
-Anyone can open the live application using the above link without installing Python locally.
+No local installation is required to use the online application.
+
+
 
 ### Deployment Architecture
 
