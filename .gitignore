@@ -1,0 +1,29 @@
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# VS Code settings
+.vscode/
+
+# Jupyter Notebook temporary files
+.ipynb_checkpoints/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Python environment files
+*.egg-info/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Large trained model
+pjm_energy_forecasting_model.pkl
