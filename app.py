@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
+import os
+import urllib.request
 
 
 # ==========================================================
@@ -21,9 +23,21 @@ st.set_page_config(
 
 @st.cache_resource
 def load_model():
-    return joblib.load("pjm_energy_forecasting_model.pkl")
+
+    model_url = "https://huggingface.co/prem727/pjm-energy-forecasting-model/resolve/main/pjm_energy_forecasting_model.pkl"
+
+    model_path = "pjm_energy_forecasting_model.pkl"
+
+    if not os.path.exists(model_path):
+        urllib.request.urlretrieve(
+            model_url,
+            model_path
+        )
+
+    return joblib.load(model_path)
 
 
+# Load the trained model
 final_model = load_model()
 
 
@@ -90,6 +104,7 @@ def generate_forecast(model, history_df, hours=720):
 
     future_dates = []
 
+
     # ======================================================
     # FORECAST EACH FUTURE HOUR
     # ======================================================
@@ -100,6 +115,7 @@ def generate_forecast(model, history_df, hours=720):
             last_datetime
             + pd.Timedelta(hours=i + 1)
         )
+
 
         # ==================================================
         # CREATE TIME FEATURES
@@ -644,7 +660,7 @@ elif page == "Forecast Data":
 
     # ======================================================
     # DOWNLOAD FORECAST
-    # ======================================================
+    # ==========================================================
 
     st.subheader(
         "Download Forecast"
